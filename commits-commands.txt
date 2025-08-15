@@ -1,5 +1,5 @@
 
-git add . && git commit -m "desenvolvimento" && git push -u origin master
+git add . && git commit -m "desenvolvimento" && git push -u origin main
 
 git add . && git commit -m "desenvolvimento" && git push -u origin newcheckout
 
