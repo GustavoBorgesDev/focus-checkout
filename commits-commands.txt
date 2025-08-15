@@ -1,0 +1,28 @@
+
+git add . && git commit -m "desenvolvimento" && git push -u origin master
+
+git add . && git commit -m "desenvolvimento" && git push -u origin newcheckout
+
+git add . && git commit -m "desenvolvimento" --no-verify && git push -u origin main
+
+git checkout -b ＜new-branch
+
+
+git checkout -b ＜new-branch＞ ＜existing-branch＞
+
+
+
+vtex release patch stable
+vtex deploy -f
+vtex use prod --production 
+vtex install 
+
+1º git add .
+2º git commit -m "Orion Adjustments"
+
+Depois subo na vtex
+
+3º vtex release patch stable
+4º vtex deploy -f
+5º vtex use master
+6º vtex update
