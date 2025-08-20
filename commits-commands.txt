@@ -18,7 +18,7 @@ vtex use prod --production
 vtex install 
 
 1º git add .
-2º git commit -m "Orion Adjustments"
+2º git commit -m "[MESSAGE]"
 
 Depois subo na vtex
 

@@ -82,3 +82,11 @@
     line-height: 24px;
     width: 100%;
 }
+
+.footer-checkout-content-brand img {
+    max-width: 135px;
+}
+
+.footer-checkout-content-payments img {
+    max-width: 40px;
+}
