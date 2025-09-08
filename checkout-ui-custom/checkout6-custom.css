@@ -34,13 +34,15 @@
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        max-width:320px;
+        max-width: 320px;
         margin: 0 auto;
     }
+
     .footer-checkout-content-brand img {
         display: block;
         margin: 10px auto;
     }
+
     .footer-checkout-content span {
         text-align: center;
         margin: 25px 0;
@@ -52,9 +54,10 @@
         flex-direction: row;
         justify-content: space-between;
     }
+
     .footer-checkout-content span {
-        
-    margin: 0 0 15px 0;
+
+        margin: 0 0 15px 0;
     }
 }
 
@@ -89,4 +92,50 @@
 
 .footer-checkout-content-payments img {
     max-width: 40px;
+}
+
+/* CODIGO DO VENDEDOR CSS ------------------------------------- */
+
+.seller-code-label label {
+    color: #333;
+    display: block;
+    font-size: 14px;
+    text-align: left;
+    padding: 10px 0;
+}
+
+.seller-code-input {
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+.seller-code-input input {
+    height: 40px;
+    line-height: 40px;
+    max-height: initial;
+    display: inline-block;
+    padding: 0px 10px;
+    border-radius: 4px;
+    border: 1px solid #cbcbcb;
+    outline: initial;
+    font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    width: 100%;
+    max-width: 292px;
+    margin-right: 10px;
+}
+
+#seller-code-btn {
+    width: 72px;
+    background-color: transparent;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    color: #000000;
+}
+
+.seller-code-result-fechar {
+    display: none;
 }
