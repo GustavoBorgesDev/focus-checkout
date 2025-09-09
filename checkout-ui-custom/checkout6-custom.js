@@ -52,7 +52,7 @@ try {
                 $('.loading.loading-bg').css('display', 'block');
 
                 $.ajax({
-                    url: '/api/dataentities/VD/search?codigo=' + idConsulta + '&_fields=codigo,nome',
+                    url: '/api/dataentities/VD/search?sellerCode=' + idConsulta + '&_fields=sellerCode,nome',
                     type: 'GET',
                     dataType: 'json',
                     crossDomain: true,
