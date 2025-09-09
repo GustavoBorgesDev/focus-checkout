@@ -1,5 +1,9 @@
 #!/bin/bash
 
-yarn
-yarn format
-yarn lint
+if [ -f package.json ]; then
+  yarn
+  yarn format
+  yarn lint
+else
+  echo "No package.json found; skipping lint and format."
+fi
