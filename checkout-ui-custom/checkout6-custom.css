@@ -136,6 +136,33 @@
     color: #000000;
 }
 
+.seller-code-result {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
 .seller-code-result-fechar {
     display: none;
+    cursor: pointer;
+    color: #FFF;
+    padding: 5px 10px;
+    background-color: #333;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    margin: 0 0 0 10px;
+    transition: 0.2s;
+}
+
+.seller-code-result-fechar:hover {
+    opacity: 0.8;
+}
+
+.seller-code-result-name {
+    color: #333;
+    font-size: 18px;
+    display: block;
+    font-weight: 600;
+    text-align: left;
 }

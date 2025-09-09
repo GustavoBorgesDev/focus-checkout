@@ -36,9 +36,7 @@ try {
                             <div class="seller-code-result">
                                 <div class="seller-code-result-name">
                                 </div>
-                                <button class="seller-code-result-fechar">
-                                    <i class="icon-close"></i>
-                                </button>
+                                <button class="seller-code-result-fechar">Remover</button>
                             </div>
                         </form>
                     </div>`;
@@ -52,26 +50,29 @@ try {
                 $('.loading.loading-bg').css('display', 'block');
 
                 $.ajax({
-                    url: '/api/dataentities/VD/search?sellerCode=' + idConsulta + '&_fields=sellerCode,nome',
+                    url: '/api/dataentities/VD/search?sellerCode=' + idConsulta + '&_fields=sellerCode,name, email',
                     type: 'GET',
                     dataType: 'json',
                     crossDomain: true,
                     success: function (response) {
                         if (response.length) {
-                            var nomeVendedor = response[0].nome;
-                            var codigoVendedor = response[0].codigo;
+                            var nomeVendedor = response[0].name;
+                            var codigoVendedor = response[0].sellerCode;
                             if (idConsulta == codigoVendedor) {
                                 vtexjs.checkout.getOrderForm().then(function (orderForm) {
                                     var newMarketingData = orderForm.marketingData;
 
                                     if (newMarketingData == null) {
                                         newMarketingData = {
-                                            'utmiCampaign': 'descontovendedor'
+                                            'utmCampaign': 'codigovendedor'
                                         }
                                     } else {
-                                        newMarketingData.utmiCampaign = 'descontovendedor';
+                                        newMarketingData.utmCampaign = 'codigovendedor';
                                     }
-                                    vtexjs.checkout.sendAttachment('openTextField', { value: "Vendedor - nome:" + nomeVendedor + " / código: " + codigoVendedor });
+                                    // vtexjs.checkout.sendAttachment('openTextField', { 
+                                    //     value: "Vendedor - nome:" + nomeVendedor + " / código: " + codigoVendedor 
+                                    // });
+
                                     vtexjs.checkout.sendAttachment('marketingData', newMarketingData).done(function () {
                                         localStorage.setItem('sellercode', JSON.stringify(response[0]));
                                         vendedor.showVendedor(codigoVendedor);
@@ -83,7 +84,6 @@ try {
                             }
                         } else {
                             vendedor.error();
-
                             $('.loading.loading-bg').css('display', 'none');
                         }
 
@@ -98,9 +98,9 @@ try {
             vendedor.showVendedor = function (codigo) {
                 $('input#sellerCode').val(codigo)
                 $('.seller-code-input').hide();
-                $('.seller-code-result').css('display', 'inline-flex');
-                $('.seller-code-result-name').html(codigo);
-
+                $('.seller-code-result').css('display', 'flex');
+                $('.seller-code-result-name').text(`CUPOM: ${codigo}`);
+                $('.seller-code-result-fechar').show();
             }
 
             vendedor.removeVendedor = function () {
@@ -114,7 +114,7 @@ try {
                     var newMarketingData = orderForm.marketingData;
                     const utmiEmptyMessage = 'Sem vendedor';
 
-                    newMarketingData.utmiCampaign = utmiEmptyMessage;
+                    newMarketingData.utmCampaign = utmiEmptyMessage;
                     newMarketingData.utmiPart = utmiEmptyMessage;
 
                     vtexjs.checkout.sendAttachment('marketingData', newMarketingData).done(function () {
@@ -125,12 +125,13 @@ try {
                         vtexjs.checkout.getOrderForm().then(function (orderForm) {
                             return vtexjs.checkout.sendAttachment('openTextField', { 'value': null })
                         })
+
+                        window.location.reload();
                     });
                 });
             }
 
             vendedor.acao = function () {
-                console.log('Ação');
 
                 $(document).on('click', '#seller-code-btn', function (e) {
                     e.preventDefault();
@@ -172,7 +173,7 @@ try {
             vendedor.checkVendedor = function () {
                 var objVendedor = JSON.parse(localStorage.getItem('sellercode'));
                 if (objVendedor) {
-                    vendedor.showVendedor(objVendedor.codigo);
+                    vendedor.showVendedor(objVendedor.sellerCode);
                 }
             }
 
