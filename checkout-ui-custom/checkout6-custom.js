@@ -69,15 +69,19 @@ try {
                                     } else {
                                         newMarketingData.utmCampaign = 'codigovendedor';
                                     }
-                                    // vtexjs.checkout.sendAttachment('openTextField', { 
-                                    //     value: "Vendedor - nome:" + nomeVendedor + " / código: " + codigoVendedor 
-                                    // });
-
-                                    vtexjs.checkout.sendAttachment('marketingData', newMarketingData).done(function () {
-                                        localStorage.setItem('sellercode', JSON.stringify(response[0]));
-                                        vendedor.showVendedor(codigoVendedor);
-                                        $('.loading.loading-bg').css('display', 'none');
+                                    vtexjs.checkout.sendAttachment('openTextField', {
+                                        value: "Vendedor - nome:" + nomeVendedor + " / código: " + codigoVendedor
                                     });
+
+                                    localStorage.setItem('sellercode', JSON.stringify(response[0]));
+                                    vendedor.showVendedor(codigoVendedor);
+                                    $('.loading.loading-bg').css('display', 'none');
+
+                                    // vtexjs.checkout.sendAttachment('marketingData', newMarketingData).done(function () {
+                                    //     localStorage.setItem('sellercode', JSON.stringify(response[0]));
+                                    //     vendedor.showVendedor(codigoVendedor);
+                                    //     $('.loading.loading-bg').css('display', 'none');
+                                    // });
 
                                 })
 
