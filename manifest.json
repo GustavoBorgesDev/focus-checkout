@@ -1,7 +1,7 @@
 {
   "name": "checkout-ui-settings",
   "vendor": "focustextilqa",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "title": "Checkout UI Settings",
   "description": "Declare custom settings to be used by checkout ui",
   "builders": {
