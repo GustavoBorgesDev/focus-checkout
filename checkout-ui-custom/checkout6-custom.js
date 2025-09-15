@@ -115,23 +115,27 @@ try {
                 $('.seller-code-input').show();
                 // Cookies.remove('cdv');
                 vtexjs.checkout.getOrderForm().then(function (orderForm) {
-                    var newMarketingData = orderForm.marketingData;
-                    const utmiEmptyMessage = 'Sem vendedor';
+                    // var newMarketingData = orderForm.marketingData;
+                    // const utmiEmptyMessage = 'Sem vendedor';
+                    // newMarketingData.utmCampaign = utmiEmptyMessage;
+                    // newMarketingData.utmiPart = utmiEmptyMessage;
+                    // vtexjs.checkout.sendAttachment('marketingData', newMarketingData).done(function () {
+                    //     localStorage.removeItem('sellercode');
+                    //     $('.loading.loading-bg').css('display', 'none');
+                    //     vtexjs.checkout.getOrderForm().then(function (orderForm) {
+                    //         return vtexjs.checkout.sendAttachment('openTextField', { 'value': null })
+                    //     })
+                    //     window.location.reload();
+                    // });
 
-                    newMarketingData.utmCampaign = utmiEmptyMessage;
-                    newMarketingData.utmiPart = utmiEmptyMessage;
 
-                    vtexjs.checkout.sendAttachment('marketingData', newMarketingData).done(function () {
-                        localStorage.removeItem('sellercode');
 
-                        $('.loading.loading-bg').css('display', 'none');
-
-                        vtexjs.checkout.getOrderForm().then(function (orderForm) {
-                            return vtexjs.checkout.sendAttachment('openTextField', { 'value': null })
-                        })
-
-                        window.location.reload();
-                    });
+                    localStorage.removeItem('sellercode');
+                    $('.loading.loading-bg').css('display', 'none');
+                    vtexjs.checkout.getOrderForm().then(function (orderForm) {
+                        return vtexjs.checkout.sendAttachment('openTextField', { 'value': null })
+                    })
+                    window.location.reload();
                 });
             }
 

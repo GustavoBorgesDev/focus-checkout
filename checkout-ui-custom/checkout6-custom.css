@@ -166,3 +166,8 @@
     font-weight: 600;
     text-align: left;
 }
+
+
+#cart-note {
+    pointer-events: none;
+}
