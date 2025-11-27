@@ -178,8 +178,6 @@
     }
 } */
 
-@media (max-width: 991px) {
-    .vtex-social-selling {
-        display: none !important;
-    }
+.vtex-social-selling {
+    display: none !important;
 }
