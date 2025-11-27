@@ -171,3 +171,15 @@
 #cart-note {
     pointer-events: none;
 }
+
+/* @media (max-width: 991px) {
+    .summary-template-holder .cart-links-bottom {
+        bottom: 40px !important
+    }
+} */
+
+@media (max-width: 991px) {
+    .vtex-social-selling {
+        display: none !important;
+    }
+}
